@@ -1,0 +1,8 @@
+-create a card for users.
+'to show list of users that are fetched every user can have more data but on front page only one will be shown
+-show a show more button
+'which leads us to a page of specific userid page where we see more data of that single user.
+-edit post of user
+'another page for editing and post request.
+-create a user and send a post request
+'all must be shown on card of user 

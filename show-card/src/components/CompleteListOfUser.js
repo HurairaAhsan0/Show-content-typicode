@@ -1,11 +1,9 @@
-import React from 'react'
+import * as React from 'react';
 
-const CompleteListOfUser = () => {
+
+const CompleteListOfUser=()=> {
   return (
-    <div>
-      CompleteListOfUser
-    </div>
-  )
+ <div></div>
+  );
 }
-
-export default CompleteListOfUser
+export default CompleteListOfUser;

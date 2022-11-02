@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 function CreateUser() {
 
@@ -29,7 +30,7 @@ function CreateUser() {
         console.log(Title)
         console.log(id)
         console.log(UserId)
-        const options = {
+        const postRequest = {
           url: 'https://jsonplaceholder.typicode.com/posts',
           method: 'POST',
           headers: {
@@ -43,15 +44,21 @@ function CreateUser() {
             description:Description
           }
         };
-        
-        axios(options)
+        axios(postRequest)
           .then(response => {
+            
             console.log(response);
           });
     }
 
     return (
         <div>
+            
+            <Link to="/">
+            <button>Back</button>
+          </Link>
+        <br />
+
           { UserId !==undefined ?
       (  <input 
             type="number" 
@@ -93,8 +100,9 @@ function CreateUser() {
             ):"value is undefined"
            }
             <br/>
-
+          <Link to="/User/Create">
             <button onClick={submitButton}>Submit User</button>
+          </Link>
         </div>
     )
 }

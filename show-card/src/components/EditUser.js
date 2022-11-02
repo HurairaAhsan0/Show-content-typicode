@@ -2,10 +2,7 @@ import React from 'react'
 
 const EditUser = () => {
   return (
-    <div>
-      Edit User
-    </div>
+    <div>EditUser</div>
   )
 }
-
-export default EditUser
+export default EditUser;

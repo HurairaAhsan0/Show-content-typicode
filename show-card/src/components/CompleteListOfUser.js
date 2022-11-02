@@ -1,9 +1,13 @@
-import * as React from 'react';
-
+import React from 'react';
+import ListofUser from './ListofUser';
 
 const CompleteListOfUser=()=> {
+   
   return (
- <div></div>
+ <div>
+  <ListofUser />
+ 
+ </div>
   );
 }
 export default CompleteListOfUser;

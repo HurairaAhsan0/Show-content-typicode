@@ -6,27 +6,28 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import {Link} from "react-router-dom"
 
-const ListofUser = () => {
+
+const ListofUser = (props) => {
 const [data,setdata]=useState([])
-const [index,setindex]=useState([])
+const HandleClick=()=>{
+console.log(data)
+}
+
  useEffect(() => {
   const  url="https://jsonplaceholder.typicode.com/posts";
   axios.get(url)
  .then((response)=>{
-  console.log(response.data);
-
-
-  
-    setdata(response.data.map((i)=>{
-setindex(i)
-   console.log(i)
-        return (
-          <div key={i.id} >
-        <Card sx={{ maxWidth: 200 }}>
+  const res=response.data;
+  setdata(res.map((i)=>{
+    console.log(i.userId)
+      return (
+        <div key={i.id} >
+        <Card sx={{ maxWidth: 250 }}>
     <CardContent>
       <Typography gutterBottom variant="h7" component="div">
-          Id:{i.id}
+        Id:{i.id}
       </Typography>
       <Typography gutterBottom variant="h7" component="div">
           userId:{i.userId}
@@ -35,27 +36,31 @@ setindex(i)
       {i.title}
       </Typography>
       <Typography variant="body2" color="text.secondary">
-      {i.body}
-     {console.log(i.body)}
+     Description: {i.body}
       </Typography>
     </CardContent>
     <CardActions>
+      <Link to="/User/Edit">
       <Button size="small" >Edit</Button>
-      <Button size="small">Show More</Button>
+      </Link>
+      <Link to="/User/List" >
+      <Button size="small" >Show More</Button>
+      </Link>
     </CardActions>
   </Card>
     </div>
-  )
+  ) 
 }))
-
 })
 }, [])
-console.log(index)
   return ( 
     <div>
-      <Button size="small">Create User</Button>
+      <Link to="/User/Create">
+      <Button size="small" onClick={props.UserForm} >Create User</Button>
+      </Link>
       <div>
       {data}
+      {HandleClick}
       </div>
     </div>
   )

@@ -5,15 +5,15 @@ import { useParams } from 'react-router-dom';
 
 
 const CompleteListOfUser=()=> {
- const {userid}=useParams();
- console.log(userid)
+ const {title}=useParams();
+ console.log(title)
  const [data,setdata]=useState([])
  
  const block=data.map((val)=>{
     console.log(val.userId)
   return(
     <div key={val.id}>
-   { userid===val.title ?
+   { title===val.title ?
     <div>
    <h3>userId:{val.userId}</h3>
    <h3>Id:{val.id}</h3>

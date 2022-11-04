@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import axios from "axios"
 import { Link } from 'react-router-dom';
+import {useParams} from "react-router-dom"
 
-function EditUser(props) {
-console.log(props)
+function EditUser() {
+
+const {title,description}=useParams();
+console.log(title)
+console.log(description)
+
   const[UserId,setUserId]=useState(0)
   const[id,setid]=useState(0)
   const[Title,setTitle]=useState("")
@@ -45,7 +50,7 @@ console.log(props)
         axios(postRequest)
           .then(response => {
             
-            console.log(response);
+
           });
     }
 

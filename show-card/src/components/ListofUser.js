@@ -7,31 +7,13 @@ import CardContent from '@mui/material/CardContent';
 import { Button, Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom"
-import EditUser from './EditUser';
+
 
 
 export const ListofUser = (props) => {
 
   const [Values, setValues] = useState([])
   
-  const ValuesForEdit = (props) => {
-    return Values.map((val) => {
-      console.log(val.body)
-      return <EditUser userId={val.userId} id={val.id} title={val.title} body={val.body} />
-    })
-  }
-  const ValuesForList = () => {
-    return Values.map((val) => {
-      console.log(val.userId)
-      return <div>
-   
-      
-        </div>
-    })
-  }
-
-
-
 
   const blocked = Values.map((w) => {
   
@@ -54,11 +36,11 @@ export const ListofUser = (props) => {
                   </Typography>
                 </CardContent>
                 <CardActions sx={{ bgcolor: "black" }}>
-                  <Link to="/User/Edit">
-               <Button size="small" varient="outlined" color='info' onClick={ValuesForEdit} >Edit</Button>
+                  <Link to={`/User/Edit/${w.title}/${w.body}`}>
+               <Button size="small" varient="outlined" color='info' >Edit</Button>
                </Link>
                <Link to={`/User/List/${w.title}`}>
-              <Button size="small" onClick={ValuesForList}>Show More</Button>
+              <Button size="small" >Show More</Button>
               </Link>
                 </CardActions>
               </Card>

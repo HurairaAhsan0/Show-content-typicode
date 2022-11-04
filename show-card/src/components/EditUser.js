@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom"
 
 function EditUser() {
 
-const {title,description}=useParams();
+const {title,description,userid,iid}=useParams();
 console.log(title)
 console.log(description)
 
@@ -68,19 +68,19 @@ console.log(description)
             name="UserId" 
             onChange={UserHandler} 
             placeholder="UserId" 
-            value={UserId}/> 
+            value={parseInt(userid)}/> 
             ):"value is undefined"
                       }
 
             <br/>
-            { id !==undefined ?
+            { id!==undefined ?
            (<input 
             type="number" 
             name="Id" 
             onChange={idHandler} 
             placeholder="Id" 
-            value={id}/>
-            ):"value is undefined"
+            value={parseInt(iid)}/>
+            ):" "
            }
             <br/>
             { Title!==undefined ?
@@ -89,7 +89,7 @@ console.log(description)
             name="Title" 
             onChange={titleHandler} 
             placeholder="Title" 
-            value={Title}/>
+            value={title}/>
             ):"value is undefined"
            }
             <br/>
@@ -99,7 +99,7 @@ console.log(description)
             name="Description" 
             onChange={DescriptionHandler} 
             placeholder="Description" 
-            value={Description}/>
+            value={description}/>
             ):"value is undefined"
            }
             <br/>

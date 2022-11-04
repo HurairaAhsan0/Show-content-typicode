@@ -36,10 +36,10 @@ export const ListofUser = (props) => {
                   </Typography>
                 </CardContent>
                 <CardActions sx={{ bgcolor: "black" }}>
-                  <Link to={`/User/Edit/${w.title}/${w.body}`}>
+                  <Link to={`/User/Edit/${w.title}/${w.body}/${w.userId}/${w.id}`}>
                <Button size="small" varient="outlined" color='info' >Edit</Button>
                </Link>
-               <Link to={`/User/List/${w.title}`}>
+               <Link to={`/User/List/${w.userId}`}>
               <Button size="small" >Show More</Button>
               </Link>
                 </CardActions>

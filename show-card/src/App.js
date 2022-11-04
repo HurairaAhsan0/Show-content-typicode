@@ -15,9 +15,9 @@ function App() {
 <Header/>
 <Routes>
   <Route path="/" exact element={<ListofUser />} ></Route>
-  <Route path="/User/List/:title" element={<CompleteListOfUser  /> } ></Route>
+  <Route path="/User/List/:userid" element={<CompleteListOfUser/> } ></Route>
   <Route path="/User/Create" element={<CreateUser/>} ></Route>
-  <Route path="/User/Edit/:title/:description" element={<EditUser />} ></Route>
+  <Route path="/User/Edit/:title/:description/:userid/:iid" element={<EditUser/>} ></Route>
 </Routes>
 </BrowserRouter>
  </div>

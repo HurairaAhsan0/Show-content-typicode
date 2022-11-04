@@ -4,16 +4,18 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 
+
+
 const CompleteListOfUser=()=> {
- const {title}=useParams();
- console.log(title)
+ const {userid}=useParams();
+
  const [data,setdata]=useState([])
  
  const block=data.map((val)=>{
     console.log(val.userId)
   return(
     <div key={val.id}>
-   { title===val.title ?
+   { parseInt(userid)===val.userId ?
     <div>
    <h3>userId:{val.userId}</h3>
    <h3>Id:{val.id}</h3>
@@ -42,3 +44,6 @@ const CompleteListOfUser=()=> {
   );
 }
 export default CompleteListOfUser;
+
+
+

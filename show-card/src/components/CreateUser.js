@@ -31,7 +31,7 @@ function CreateUser() {
         console.log(id)
         console.log(UserId)
         const postRequest = {
-          url: 'https://jsonplaceholder.typicode.com/posts',
+          url: `https://jsonplaceholder.typicode.com/posts`,
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -100,9 +100,7 @@ function CreateUser() {
             ):"value is undefined"
            }
             <br/>
-          <Link to="/User/Create">
             <button onClick={submitButton}>Submit User</button>
-          </Link>
         </div>
     )
 }

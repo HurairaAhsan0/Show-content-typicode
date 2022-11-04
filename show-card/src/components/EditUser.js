@@ -3,10 +3,7 @@ import axios from "axios"
 import { Link } from 'react-router-dom';
 
 function EditUser(props) {
-
-
 console.log(props)
-
   const[UserId,setUserId]=useState(0)
   const[id,setid]=useState(0)
   const[Title,setTitle]=useState("")
@@ -32,7 +29,7 @@ console.log(props)
         console.log(id)
         console.log(UserId)
         const postRequest = {
-          url: 'https://jsonplaceholder.typicode.com/posts/id',
+          url: `https://jsonplaceholder.typicode.com/posts/${id}`,
           method: 'PUT',
           headers: {
             'Accept': 'application/json',

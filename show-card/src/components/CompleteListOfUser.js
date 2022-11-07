@@ -2,6 +2,11 @@ import React from 'react';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import CardVal from './CardVal';
 
 
 
@@ -17,13 +22,29 @@ const CompleteListOfUser=()=> {
     <div key={val.id}>
    { parseInt(userid)===val.userId ?
     <div>
-   <h3>userId:{val.userId}</h3>
-   <h3>Id:{val.id}</h3>
-   <h3>title:{val.title}</h3>
-   <h3>Description:{val.body}</h3>
+       <Box>
+             <Card>
+              <CardVal
+             CardContent={<CardContent>
+                  <Typography gutterBottom variant="h8" component="div">
+                    userId:{val.userId}
+                  </Typography>
+                  <Typography gutterBottom variant="h8" component="div">
+                    Id:{val.id}
+                  </Typography>
+                  <Typography gutterBottom variant="body1" sx={{ fontFamily:'sans-serif', FontSize: 10,}} component="div">
+                  Title: {val.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.primary" >
+                    Description: {val.body}
+                  </Typography>
+                </CardContent>}
+                                />
+                                </Card>
+                              </Box>
    </div>
-    : " "  }
-    </div>
+ : ""   
+  } </div>
   )
 })
 

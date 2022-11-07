@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import axios from "axios"
-import { Link } from 'react-router-dom';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import { Button } from '@material-ui/core';
+import CardVal from './CardVal';
+import "../Styles/App.css"
 
 function CreateUser() {
 
@@ -52,57 +55,62 @@ function CreateUser() {
     }
 
     return (
-        <div>
-            
-            <Link to="/">
-            <button>Back</button>
-          </Link>
-        <br />
+      <CardVal EditContent={
+    <div>
+    <div className='content-center'>
+       <label htmlFor="UserId">User ID:</label>
+       <input 
+      name="UserId" 
+      onChange={UserHandler} 
+      placeholder="User Id" 
+      value={UserId}
+      id="UserId"
+      /> 
+      </div>
+          <br/>
+         <div className='content-center'>
+          <label htmlFor="Id">ID:  </label>
+         <input  
+          name="Id" 
+          onChange={idHandler} 
+          placeholder="Id" 
+          value={id}
+          id="Id"
+          />
+          </div>
+          <br/>
+         <div className='content-center'>
+          <label htmlFor="title">Title:</label> 
+         <TextareaAutosize 
+          type="text" 
+          name="Title" 
+          onChange={titleHandler} 
+          placeholder="Title" 
+          value={Title}
+          id="title"
+          />
+          </div>
+         <br/>
+          <div className='content-center'>
+          <label htmlFor="des">Description:</label>
+         <TextareaAutosize 
+          type="Description" 
+          name="Description" 
+          onChange={DescriptionHandler} 
+          placeholder="Description" 
+          value={Description}
+          id="des"
+          />
+          </div>
+          <div className='btn'>
+          <Button  onClick={submitButton}>Submit User</Button>
+          </div>
+      </div>
+        }
+        />
 
-          { UserId !==undefined ?
-      (  <input 
-            type="number" 
-            name="UserId" 
-            onChange={UserHandler} 
-            placeholder="UserId" 
-            value={UserId}/> 
-            ):"value is undefined"
-                      }
-
-            <br/>
-            { id !==undefined ?
-           (<input 
-            type="number" 
-            name="Id" 
-            onChange={idHandler} 
-            placeholder="Id" 
-            value={id}/>
-            ):"value is undefined"
-           }
-            <br/>
-            { Title!==undefined ?
-           ( <input 
-            type="text" 
-            name="Title" 
-            onChange={titleHandler} 
-            placeholder="Title" 
-            value={Title}/>
-            ):"value is undefined"
-           }
-            <br/>
-            { Description !==undefined ?
-           ( <input 
-            type="Description" 
-            name="Description" 
-            onChange={DescriptionHandler} 
-            placeholder="Description" 
-            value={Description}/>
-            ):"value is undefined"
-           }
-            <br/>
-            <button onClick={submitButton}>Submit User</button>
-        </div>
-    )
+       
+  )
 }
 
 export default CreateUser;

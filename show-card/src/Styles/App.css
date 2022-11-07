@@ -1,18 +1,55 @@
 @import "./Variable.css";
 
-
-.App{
-    background-color: var(--background);
-    padding: 0px 200px;
-
+.App {
+  padding: 0px 200px;
 }
 .card-content {
-    background-color: rgb(112, 39, 39);
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  .card-action{
-    background-color: black;
-    border-radius: 6px;
-    box-shadow: var(--white-shadow);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blueDark);
+  border-radius: 6px;
+  box-shadow: var(--white-shadow);
+  margin-top: 48px;
+}
+.card-action {
+  background-color: var(--blueDark);
+  border-radius: 5px;
+  box-shadow: var(--white-shadow);
+  pointer-events: auto;
+  border: 1px solid rgb(255, 255, 255);
+}
+.Edit-content {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 6px;
+  background-color: var(--blueDark);
+  margin-top: 50px;
+}
+.content-center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 1px;
+  margin-bottom: 5px;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: rgb(223, 207, 207);
+  border-radius: 6px;
+  width: fit-content;
+  position: relative;
+  left: 100px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+

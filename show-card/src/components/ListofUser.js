@@ -38,8 +38,8 @@ export const ListofUser = (props) => {
                                      Name: { user.name}
                                    </Typography> ):" " }
                                                  </div>   )      })}
-                  <Typography gutterBottom variant="body1" component="div">
-                    {w.title}
+                  <Typography gutterBottom variant="body1" sx={{ fontFamily:'sans-serif', FontSize: 10,}} component="div">
+                   Title: {w.title}
                   </Typography>
                   <Typography variant="body2" color="text.primary" >
                     Description: {w.body}
@@ -47,10 +47,10 @@ export const ListofUser = (props) => {
                 </CardContent>}
                CardAction={ <CardActions >
                   <Link to={`/User/Edit/${w.title}/${w.body}/${w.userId}/${w.id}`}>
-               <Button size="small" varient="outlined" color='info' >Edit</Button>
+               <Button size="small"   sx={{bgcolor:"black",color:"white",m:1}} >Edit</Button>
                </Link>
                <Link to={`/User/List/${w.userId}`}>
-              <Button size="small" >Show More</Button>
+              <Button size="small"  sx={{bgcolor:"black",color:"white",m:1}} >Show More</Button>
               </Link>
                 </CardActions>}
                 />
@@ -83,14 +83,11 @@ export const ListofUser = (props) => {
     UserRequest();
   }, [])
   return (
-    <div >
-  <Link to="/User/Create" >
-  <Button sx={{bgcolor:"black",m:1}} >Create User</Button>
-  </Link>
+ 
       <div>
         {blocked}
       </div>
-    </div>
+   
   )
 }
 

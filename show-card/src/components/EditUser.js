@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import axios from "axios"
-import { Link } from 'react-router-dom';
 import {useParams} from "react-router-dom"
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import { Button } from '@material-ui/core';
+import CardVal from './CardVal';
+import "../Styles/App.css"
   
 
 function EditUser() {
@@ -50,18 +53,17 @@ console.log(description)
         };
         axios(postRequest)
           .then(response => {
-            
+            console.log(response)
 
           });
     }
 
     return (
-        <div>
-    { UserId !==undefined ?
-      ( <div>
-         <label htmlFor="UserId">User ID</label>
-         <input 
-        type="number" 
+        <CardVal EditContent={
+      <div>
+      <div className='content-center'>
+         <label htmlFor="UserId">User ID:</label>
+         <input  
         name="UserId" 
         onChange={UserHandler} 
         placeholder="User Id" 
@@ -69,15 +71,10 @@ console.log(description)
         id="UserId"
         /> 
         </div>
-        ):" "
-      }
-
             <br/>
-            { id!==undefined ?
-           (<div>
-            <label htmlFor="Id">ID</label>
+           <div className='content-center'>
+            <label htmlFor="Id">ID:  </label>
            <input 
-            type="number" 
             name="Id" 
             onChange={idHandler} 
             placeholder="Id" 
@@ -85,44 +82,38 @@ console.log(description)
             id="Id"
             />
             </div>
-            ):" "
-          }
             <br/>
-            { Title!==undefined ?
-           (<div>
-            <label htmlFor="title">Title</label> 
-           <input 
+           <div className='content-center'>
+            <label htmlFor="title">Title:</label> 
+           <TextareaAutosize 
             type="text" 
             name="Title" 
             onChange={titleHandler} 
             placeholder="Title" 
-            value={title}
+            value={title && Title }
             id="title"
             />
             </div>
-            ):"value is undefined"
-          }
-            <br/>
-            { Description !==undefined ?
-           ( <div>
-            <label htmlFor="des">User ID</label>
-           <input 
+           <br/>
+            <div className='content-center'>
+            <label htmlFor="des">Description:</label>
+           <TextareaAutosize 
             type="Description" 
             name="Description" 
             onChange={DescriptionHandler} 
             placeholder="Description" 
-            value={description}
+            value={description && Description}
             id="des"
             />
             </div>
-            ):"value is undefined"
-          }
-            <br/>
-          <Link to="/User/Create">
-            <button onClick={submitButton}>Submit User</button>
-          </Link>
-         
+            <div className='btn'>
+            <Button  onClick={submitButton}>Submit User</Button>
+            </div>
         </div>
+          }
+          />
+
+         
     )
 }
 

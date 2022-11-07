@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from "axios"
 import { Link } from 'react-router-dom';
 import {useParams} from "react-router-dom"
+  
 
 function EditUser() {
 
@@ -56,56 +57,71 @@ console.log(description)
 
     return (
         <div>
-            
-            <Link to="/">
-            <button>Back</button>
-          </Link>
-        <br />
-
-          { UserId !==undefined ?
-      (  <input 
-            type="number" 
-            name="UserId" 
-            onChange={UserHandler} 
-            placeholder="UserId" 
-            value={parseInt(userid)}/> 
-            ):"value is undefined"
-                      }
+    { UserId !==undefined ?
+      ( <div>
+         <label htmlFor="UserId">User ID</label>
+         <input 
+        type="number" 
+        name="UserId" 
+        onChange={UserHandler} 
+        placeholder="User Id" 
+        value={parseInt(userid)}
+        id="UserId"
+        /> 
+        </div>
+        ):" "
+      }
 
             <br/>
             { id!==undefined ?
-           (<input 
+           (<div>
+            <label htmlFor="Id">ID</label>
+           <input 
             type="number" 
             name="Id" 
             onChange={idHandler} 
             placeholder="Id" 
-            value={parseInt(iid)}/>
+            value={parseInt(iid)}
+            id="Id"
+            />
+            </div>
             ):" "
-           }
+          }
             <br/>
             { Title!==undefined ?
-           ( <input 
+           (<div>
+            <label htmlFor="title">Title</label> 
+           <input 
             type="text" 
             name="Title" 
             onChange={titleHandler} 
             placeholder="Title" 
-            value={title}/>
+            value={title}
+            id="title"
+            />
+            </div>
             ):"value is undefined"
-           }
+          }
             <br/>
             { Description !==undefined ?
-           ( <input 
+           ( <div>
+            <label htmlFor="des">User ID</label>
+           <input 
             type="Description" 
             name="Description" 
             onChange={DescriptionHandler} 
             placeholder="Description" 
-            value={description}/>
+            value={description}
+            id="des"
+            />
+            </div>
             ):"value is undefined"
-           }
+          }
             <br/>
           <Link to="/User/Create">
             <button onClick={submitButton}>Submit User</button>
           </Link>
+         
         </div>
     )
 }

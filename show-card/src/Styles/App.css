@@ -1,0 +1,18 @@
+@import "./Variable.css";
+
+
+.App{
+    background-color: var(--background);
+    padding: 0px 200px;
+
+}
+.card-content {
+    background-color: rgb(112, 39, 39);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .card-action{
+    background-color: black;
+    border-radius: 6px;
+    box-shadow: var(--white-shadow);
+  }

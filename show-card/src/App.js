@@ -3,7 +3,7 @@ import CompleteListOfUser from "./components/CompleteListOfUser";
 import CreateUser from "./components/CreateUser";
 import EditUser from "./components/EditUser";
 import ListofUser from "./components/ListofUser";
-import Header from "./components/Header"
+import Header from "./components/Header/Header";
 import "./Styles/App.css";
 
 function App() {

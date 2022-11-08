@@ -1,7 +1,7 @@
 @import "./Variable.css";
 
 .App {
-  padding: 0px 200px;
+  
 }
 .card-content {
   display: flex;
@@ -10,7 +10,11 @@
   background-color: var(--blueDark);
   border-radius: 6px;
   box-shadow: var(--white-shadow);
-  margin-top: 48px;
+  position:relative;
+  padding: 0;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 7px
 }
 .card-action {
   background-color: var(--blueDark);
@@ -25,7 +29,7 @@
   align-content: center;
   border-radius: 6px;
   background-color: var(--blueDark);
-  margin-top: 50px;
+  margin-top: 5px;
 }
 .content-center {
   display: flex;

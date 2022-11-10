@@ -1,55 +1,29 @@
-@import "./Variable.css";
-
-.App {
-  padding: 0px 200px;
+body{
+background-color: rgb(0, 0, 0);
 }
 .card-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--blueDark);
-  border-radius: 6px;
-  box-shadow: var(--white-shadow);
-  margin-top: 48px;
+background-color: black;
+
+
 }
 .card-action {
-  background-color: var(--blueDark);
-  border-radius: 5px;
-  box-shadow: var(--white-shadow);
-  pointer-events: auto;
-  border: 1px solid rgb(255, 255, 255);
+background-color: black;
 }
 .Edit-content {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  border-radius: 6px;
-  background-color: var(--blueDark);
-  margin-top: 50px;
-}
-.content-center {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-top: 1px;
-  margin-bottom: 5px;
+background-color: #dbb858;
 }
 .btn {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  background-color: rgb(223, 207, 207);
-  border-radius: 6px;
-  width: fit-content;
-  position: relative;
-  left: 100px;
-  margin-top: 10px;
-  margin-bottom: 5px;
+background-color: #dbb858;
+text-decoration-line: none;
 }
-a,
+
+/* .container{
+
+} */
+Link,
 a:hover,
-a:focus,
 a:active {
-  text-decoration: none;
+  text-decoration-line:underline;
+  text-decoration-color: rgb(20, 22, 25);
 }
 

@@ -22,20 +22,20 @@ const CompleteListOfUser=()=> {
     <div key={val.id}>
    { parseInt(userid)===val.userId ?
     <div>
-       <Box>
+       <Box sx={{m:1}}>
              <Card>
               <CardVal
-             CardContent={<CardContent>
-                  <Typography gutterBottom variant="h8" component="div">
+             CardContent={<CardContent sx={{bgcolor:"#dbb858",border:1,borderRadius:"6px"}}>
+                  <Typography gutterBottom variant="h8" sx={{fontSize:"22px"}} component="div">
                     userId:{val.userId}
                   </Typography>
                   <Typography gutterBottom variant="h8" component="div">
                     Id:{val.id}
                   </Typography>
-                  <Typography gutterBottom variant="body1" sx={{ fontFamily:'sans-serif', FontSize: 10,}} component="div">
+                  <Typography gutterBottom variant="body1" sx={{ fontSize:"23px",fontFamily:"serif"}} component="div">
                   Title: {val.title}
                   </Typography>
-                  <Typography variant="body2" color="text.primary" >
+                  <Typography variant="body2" color="text.primary" sx={{fontSize:"14px"}} >
                     Description: {val.body}
                   </Typography>
                 </CardContent>}

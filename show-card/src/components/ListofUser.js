@@ -24,33 +24,33 @@ export const ListofUser = (props) => {
         { w.id===1 ||  w.id===11 ||  w.id===21 || w.id===31 || w.id===41 || w.id===51 || w.id===61 
         || w.id===71 || w.id===81 || w.id===91  ?
           (
-            <Box sx={{ m: 2, Width: 25 }} >
+            <Box sx={{ m:2}} >
              <Card>
               <CardVal
-             CardContent={<CardContent>
-                  <Typography gutterBottom variant="h8" component="div">
+             CardContent={<CardContent sx={{bgcolor:"#dbb858",border:1,borderRadius:"6px"}}>
+                  <Typography gutterBottom variant="h8" sx={{fontSize:"20px"}} component="div">
                     userId:{w.userId}
-                  </Typography>
+                  </Typography >
                   {UserValue.map((user)=>{
                     return(
                       <div key={user.id}>
-               {  user.id===w.userId ?(<Typography gutterBottom variant="h8" component="div" >
+               {  user.id===w.userId ?(<Typography gutterBottom sx={{fontSize:"20px"}} variant="h8" component="div" >
                                      Name: { user.name}
                                    </Typography> ):" " }
                                                  </div>   )      })}
-                  <Typography gutterBottom variant="body1" sx={{ fontFamily:'sans-serif', FontSize: 10,}} component="div">
+                  <Typography gutterBottom variant="body1" sx={{ fontFamily:'serif', fontSize:"22px"}} component="div">
                    Title: {w.title}
                   </Typography>
-                  <Typography variant="body2" color="text.primary" >
+                  <Typography variant="body2" color="text.primary" sx={{fontSize:"14px"}} >
                     Description: {w.body}
                   </Typography>
                 </CardContent>}
-               CardAction={ <CardActions >
-                  <Link to={`/User/Edit/${w.title}/${w.body}/${w.userId}/${w.id}`}>
-               <Button size="small"   sx={{bgcolor:"black",color:"white",m:1}} >Edit</Button>
+               CardAction={ <CardActions sx={{bgcolor:"#dbb858",border:1,borderRadius:"6px"}} >
+                  <Link to={`/User/Edit/${w.title}/${w.body}/${w.userId}/${w.id}`} className='btn' >
+               <Button className='btn'size="small"   sx={{bgcolor:"black",color:"white",m:1}} >Edit</Button>
                </Link>
-               <Link to={`/User/List/${w.userId}`}>
-              <Button size="small"  sx={{bgcolor:"black",color:"white",m:1}} >Show More</Button>
+               <Link to={`/User/List/${w.userId}`} className="btn">
+              <Button className='btn' size="small"  sx={{bgcolor:"black",color:"white",m:1}} >Show More</Button>
               </Link>
                 </CardActions>}
                 />

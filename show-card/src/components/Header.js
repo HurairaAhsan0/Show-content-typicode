@@ -1,24 +1,27 @@
 import React from 'react'
-import { Button,AppBar,Toolbar,Stack } from "@mui/material";
-import {Link } from "react-router-dom"
+import { Button,AppBar,Toolbar } from "@mui/material";
+// import SvgIcon from "@mui/material/SvgIcon";
+import {Link } from "react-router-dom";
+import "../Styles/App.css"
 
 const Header = () => {
   return (
     
-    <div>
-      <AppBar sx={{height:50,bgcolor:"#5c6dff"}}>
-        <Toolbar>
-          <Stack direction="row" spacing={80} >
-        <Link to="/">
-        <Button size="small" varient="outlined" sx={{bgcolor:"black",color:"white",m:1,height:25}}>Home</Button>
+      <AppBar position="static" sx={{bgcolor:"#dbb858",color:"white",borderRadius:"4px" }}>
+        <Toolbar sx={{justifyContent:"space-between",}}>
+        <Link to="/" className='btn'>
+        <Button size="small"  sx={{bgcolor:"black",color:"white"}}>Home</Button>
       </Link>
-       <Link to="/User/Create" >
-       <Button size="small" sx={{bgcolor:"black",color:"white",m:1,height:25}} >Create User</Button>
+
+        {/* <Link to="/" className='btn'>
+       <SvgIcon sx={{bgcolor:"black"}} />
+      </Link> */}
+
+       <Link to="/User/Create" className='btn'>
+       <Button  size="small" sx={{bgcolor:"black",color:"white"}} >Create User</Button>
        </Link>
-          </Stack>
         </Toolbar>
       </AppBar>
-       </div>
    
   )
 }

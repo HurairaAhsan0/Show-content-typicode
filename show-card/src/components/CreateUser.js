@@ -56,10 +56,10 @@ function CreateUser() {
 
     return (
       <CardVal EditContent={
-    <div>
+    <div style={{marginTop:"2em",justifyContent:"center"}}>
     <div className='content-center'>
-       <label htmlFor="UserId">User ID:</label>
-       <input 
+       <label htmlFor="UserId">User ID</label>
+       <input style={{borderRadius:"8px"}} 
       name="UserId" 
       onChange={UserHandler} 
       placeholder="User Id" 
@@ -69,8 +69,8 @@ function CreateUser() {
       </div>
           <br/>
          <div className='content-center'>
-          <label htmlFor="Id">ID:  </label>
-         <input  
+          <label htmlFor="Id">ID </label>
+         <input  style={{borderRadius:"8px"}} 
           name="Id" 
           onChange={idHandler} 
           placeholder="Id" 
@@ -80,8 +80,8 @@ function CreateUser() {
           </div>
           <br/>
          <div className='content-center'>
-          <label htmlFor="title">Title:</label> 
-         <TextareaAutosize 
+          <label htmlFor="title">Title</label> 
+         <TextareaAutosize style={{height:40, borderRadius:"8px"}} 
           type="text" 
           name="Title" 
           onChange={titleHandler} 
@@ -92,8 +92,8 @@ function CreateUser() {
           </div>
          <br/>
           <div className='content-center'>
-          <label htmlFor="des">Description:</label>
-         <TextareaAutosize 
+          <label htmlFor="des">Description</label>
+         <TextareaAutosize style={{height:40,borderRadius:"8px"}} 
           type="Description" 
           name="Description" 
           onChange={DescriptionHandler} 
@@ -102,8 +102,8 @@ function CreateUser() {
           id="des"
           />
           </div>
-          <div className='btn'>
-          <Button  onClick={submitButton}>Submit User</Button>
+          <div style={{margin:"0.7em"}}>
+          <Button  onClick={submitButton} style={{background:"black",border:"1px solid black",color:"white",borderRadius:"8px",width:"9em",marginLeft:"4em"}}>Submit User</Button>
           </div>
       </div>
         }

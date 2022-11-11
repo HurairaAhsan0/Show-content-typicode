@@ -20,14 +20,14 @@ export const ListofUser = (props) => {
 
   const blocked = Values.map((w) => { 
     return (
-      <div  key={w.id}>
+      <div  key={w.id}  >
         { w.id===1 ||  w.id===11 ||  w.id===21 || w.id===31 || w.id===41 || w.id===51 || w.id===61 
         || w.id===71 || w.id===81 || w.id===91  ?
           (
-            <Box sx={{ m:2}} >
-             <Card>
-              <CardVal
-             CardContent={<CardContent sx={{bgcolor:"#dbb858",border:1,borderRadius:"6px"}}>
+            <Box sx={{ m:2,bgcolor:"#E8E8E8",boxShadow:"none"}} >
+             <Card sx={{bgcolor:"#E8E8E8",boxShadow:"none"}}>
+              <CardVal 
+             CardContent={<CardContent sx={{bgcolor:"#1d4491",border:1,borderRadius:"6px"}}>
                   <Typography gutterBottom variant="h8" sx={{fontSize:"20px"}} component="div">
                     userId:{w.userId}
                   </Typography >
@@ -45,12 +45,12 @@ export const ListofUser = (props) => {
                     Description: {w.body}
                   </Typography>
                 </CardContent>}
-               CardAction={ <CardActions sx={{bgcolor:"#dbb858",border:1,borderRadius:"6px"}} >
-                  <Link to={`/User/Edit/${w.title}/${w.body}/${w.userId}/${w.id}`} className='btn' >
-               <Button className='btn'size="small"   sx={{bgcolor:"black",color:"white",m:1}} >Edit</Button>
+               CardAction={ <CardActions sx={{bgcolor:"#1d4491",border:1,borderRadius:"6px",justifyContent:"space-between"}} >
+                  <Link to={`/User/Edit/${w.title}/${w.body}/${w.userId}/${w.id}`} >
+               <Button className='btn'size="large"   sx={{bgcolor:"black",color:"white"}} >Edit</Button>
                </Link>
-               <Link to={`/User/List/${w.userId}`} className="btn">
-              <Button className='btn' size="small"  sx={{bgcolor:"black",color:"white",m:1}} >Show More</Button>
+               <Link to={`/User/List/${w.userId}`}>
+              <Button className='btn' size="large"  sx={{bgcolor:"black",color:"white"}} >Show More</Button>
               </Link>
                 </CardActions>}
                 />

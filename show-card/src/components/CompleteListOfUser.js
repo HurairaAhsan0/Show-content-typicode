@@ -19,13 +19,13 @@ const CompleteListOfUser=()=> {
  const block=data.map((val)=>{
     console.log(val.userId)
   return(
-    <div key={val.id}>
+    <div key={val.id} style={{background:"1d4491"}}>
    { parseInt(userid)===val.userId ?
     <div>
        <Box sx={{m:1}}>
-             <Card>
+             <Card sx={{boxShadow:"none"}}>
               <CardVal
-             CardContent={<CardContent sx={{bgcolor:"#dbb858",border:1,borderRadius:"6px"}}>
+             CardContent={<CardContent sx={{bgcolor:"#1d4491",borderRadius:"6px"}}>
                   <Typography gutterBottom variant="h8" sx={{fontSize:"22px"}} component="div">
                     userId:{val.userId}
                   </Typography>
@@ -43,7 +43,7 @@ const CompleteListOfUser=()=> {
                                 </Card>
                               </Box>
    </div>
- : ""   
+ : " "   
   } </div>
   )
 })

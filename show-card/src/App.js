@@ -10,17 +10,17 @@ function App() {
   
 
   return (
- <div>
-<BrowserRouter>
+    <BrowserRouter>
 <Header/>
+ <div style={{marginLeft:"25%",marginRight:"25%"}}>
 <Routes>
   <Route path="/" exact element={<ListofUser />} ></Route>
   <Route path="/User/List/:userid" element={<CompleteListOfUser/> } ></Route>
   <Route path="/User/Create" element={<CreateUser/>} ></Route>
   <Route path="/User/Edit/:title/:description/:userid/:iid" element={<EditUser/>} ></Route>
 </Routes>
-</BrowserRouter>
  </div>
+</BrowserRouter>
   
   );
 }

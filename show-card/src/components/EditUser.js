@@ -1,11 +1,10 @@
 import React, {useState,useEffect} from 'react';
 import axios from "axios"
 import {useParams} from "react-router-dom"
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import { Button } from '@material-ui/core';
-import CardVal from './CardVal';
+import Card from './Card';
 import { styled } from '@mui/system';
 import "../Styles/App.css"
+import PersonAddAltSharpIcon from '@mui/icons-material/PersonAddAltSharp';
 
 const blue = {
   100: '#DAECFF',
@@ -31,7 +30,6 @@ const grey = {
 
 const StyledInputElement = styled('input')(
   ({ theme }) => `
-  width: 320px;
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
@@ -53,13 +51,53 @@ const StyledInputElement = styled('input')(
   }
 `,
 );
+
+const StyledMultiLineElement = styled('textarea')(
+  ({ theme }) => `
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 2;
+  padding: 12px;
+  border-radius: 12px;
+  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
+  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
+  border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
+  box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
+
+  &:hover {
+    border-color: ${blue[400]};
+  }
+
+  &:focus {
+    border-color: ${blue[400]};
+    outline: 3px solid ${theme.palette.mode === 'dark' ? blue[500] : blue[200]};
+  }
+`,
+);
+
+const ButtonComponent = styled('button')({
+  color: 'white',
+  backgroundColor: '#007FFF',
+  textTransform: "uppercase",
+  padding: 10,
+  borderRadius: 6,
+  marginTop:"15px",
+  marginLeft:"1.2em",
+  borderColor:'#007FFF',
+
+  '&:hover': {
+    borderColor: '#FFFFFF',
+  }
+});
+
+
+
   
 
 function EditUser() {
 
-const {title,description,userid,iid}=useParams();
-console.log(title)
-console.log(description)
+const {iid}=useParams();
 
   const[UserId,setUserId]=useState("")
   const[id,setid]=useState("")
@@ -68,10 +106,11 @@ console.log(description)
   
     
 useEffect(() => {
-  setUserId(userid);
-  setid(iid);
 
-}, [userid,iid])
+  setid(iid);
+}, [iid])
+
+
 
     const UserHandler = (e) =>{
         setUserId( e.target.value)
@@ -113,38 +152,40 @@ useEffect(() => {
     }
 
     return (
-        <CardVal EditContent={ 
-      <div style={{marginTop:"10%"}}>
+      <div className='Form-content'>
+        <Card FormContent={ 
+          <>
+   <PersonAddAltSharpIcon sx={{color:"#007FFF",marginBottom:"8px",fontSize:"60px"}}/>
       <div className='content-center'>
          <label htmlFor="UserId">User ID</label>
-         <input  slots={{ input: StyledInputElement }} style={{borderRadius:"8px"}} 
+         <StyledInputElement  slots={{ input: StyledInputElement }} 
         name="UserId" 
         onChange={UserHandler} 
         placeholder="User Id" 
-        value={userid && UserId}
+        value={UserId}
         id="UserId"
         /> 
         </div>
             <br/>
            <div className='content-center'>
-            <label htmlFor="Id">ID  </label>
-           <input slots={{ input: StyledInputElement }} style={{borderRadius:"8px"}} 
+            <label htmlFor="Id">ID </label>
+           <StyledInputElement slots={{ input: StyledInputElement }}  
             name="Id" 
             onChange={idHandler} 
             placeholder="Id" 
-            value={iid && id}
+            value={iid}
             id="Id"
             />
             </div>
             <br/>
            <div className='content-center'>
             <label htmlFor="title">Title</label> 
-           <TextareaAutosize slots={{ input: StyledInputElement }} style={{height:40,borderRadius:"8px"}} 
+           <StyledInputElement slots={{ input: StyledInputElement }} 
             type="text" 
             name="Title" 
             onChange={titleHandler} 
             placeholder="Title" 
-            value={title && Title }
+            value={Title }
             id="title"
             />
             </div>
@@ -152,21 +193,20 @@ useEffect(() => {
            <br/>
             <div className='content-center'>
             <label htmlFor="des">Description</label>
-           <TextareaAutosize slots={{ input: StyledInputElement }} style={{height:40,borderRadius:"8px"}}
+           <StyledMultiLineElement slots={{ input: StyledInputElement }}
             type="Description" 
             name="Description" 
             onChange={DescriptionHandler} 
             placeholder="Description" 
-            value={description && Description}
+            value={Description}
             id="des"
             />
             </div>
-            <div style={{margin:"0.7em"}}>
-          <Button  onClick={submitButton} style={{background:"black",border:"1px solid black",color:"white",borderRadius:"8px",width:"9em",marginLeft:"4em"}}>Submit User</Button>
-          </div>
-        </div>
+          <ButtonComponent  onClick={submitButton} slots={{button:ButtonComponent}}  >Submit User</ButtonComponent>
+            </>
           }
           />
+          </div>
 
          
     )

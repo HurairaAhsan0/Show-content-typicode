@@ -1,39 +1,40 @@
 body{
  background-color: 	#E8E8E8;
 }
-.Edit-content {
-background-color: #1d4491;
+
+p {
+  font-family: sans-serif;
+}
+.Form-content {
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-box-shadow: none;
-}
+margin-top: 50px;
+padding: 5em;
 
-.btn {
-color:white;
-background-color: black;
-text-decoration-line: none;
-display: flex;
-border-radius: 2px solid black;
-padding: 1.1em;
 }
-.container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .content-center{
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  width: 150px;
+  font-size: large;
+  color: #342929;
+}
+.Form-Position{
+position:relative;
+ width: 30em;
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ padding: 1.1em;
+}
+.Card{
+ margin-top: 30px;
+}
+.underline{
+  text-decoration: none;
 }
 
-Link,
-a:hover,
-a:active {
-  text-decoration-line:underline;
-  text-decoration-color: rgb(255, 255, 255);
-}
 

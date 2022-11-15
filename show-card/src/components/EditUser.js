@@ -1,10 +1,10 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios"
-import {useParams} from "react-router-dom"
-import Card from './Card';
+import { useParams } from "react-router-dom"
 import { styled } from '@mui/system';
 import "../Styles/App.css"
-import PersonAddAltSharpIcon from '@mui/icons-material/PersonAddAltSharp';
+import ModeEditTwoToneIcon from '@mui/icons-material/ModeEditTwoTone';
+import PersonIcon from '@mui/icons-material/Person';
 
 const blue = {
   100: '#DAECFF',
@@ -34,6 +34,7 @@ const StyledInputElement = styled('input')(
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
+  width: 400px;
   padding: 12px;
   border-radius: 12px;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
@@ -57,9 +58,11 @@ const StyledMultiLineElement = styled('textarea')(
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 2;
+  line-height: 3;
   padding: 12px;
   border-radius: 12px;
+  width:14em;
+ margin-left:55px;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
@@ -82,9 +85,9 @@ const ButtonComponent = styled('button')({
   textTransform: "uppercase",
   padding: 10,
   borderRadius: 6,
-  marginTop:"15px",
-  marginLeft:"1.2em",
-  borderColor:'#007FFF',
+  marginTop: "15px",
+  marginLeft: "1.2em",
+  borderColor: '#007FFF',
 
   '&:hover': {
     borderColor: '#FFFFFF',
@@ -93,123 +96,106 @@ const ButtonComponent = styled('button')({
 
 
 
-  
+
 
 function EditUser() {
 
-const {iid}=useParams();
+  const { Name,title,description } = useParams();
 
-  const[UserId,setUserId]=useState("")
-  const[id,setid]=useState("")
-  const[Title,setTitle]=useState("")
-  const[Description,setDescription]=useState("")
-  
+ 
+  const [id, setid] = useState("")
+  const [Title, setTitle] = useState("")
+  const [Description, setDescription] = useState("")
+
+
+  useEffect(() => {
+
+    setid(Name);
+    setTitle(title);
+    setDescription(description);
     
-useEffect(() => {
-
-  setid(iid);
-}, [iid])
+  }, [Name,title,description])
 
 
 
-    const UserHandler = (e) =>{
-        setUserId( e.target.value)
-    }
-    const idHandler = (e) =>{
-        setid(e.target.value )
-    }
-    const titleHandler = (e) =>{
-        setTitle( e.target.value )
-    }
-    const DescriptionHandler = (e) =>{
-        setDescription( e.target.value )
-    }
+ 
+  const idHandler = (e) => {
+    setid(e.target.value)
+  }
+  const titleHandler = (e) => {
+    setTitle(e.target.value)
+  }
+  const DescriptionHandler = (e) => {
+    setDescription(e.target.value)
+  }
 
-    const submitButton = () =>{
-        console.log(Description)
-        console.log(Title)
-        console.log(id)
-        console.log(UserId)
-        const postRequest = {
-          url: `https://jsonplaceholder.typicode.com/posts/${parseInt(id)}`,
-          method: 'PUT',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json;charset=UTF-8'
-          },
-          data: {
-            UserId: UserId,
-            id: id,
-            title:Title,
-            description:Description
-          }
-        };
-        axios(postRequest)
-          .then(response => {
-            console.log(response)
+  const submitButton = () => {
+    const postRequest = {
+      url: `https://jsonplaceholder.typicode.com/posts/${parseInt(id)}`,
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+      data: {
+        id: id,
+        title: Title,
+        description: Description
+      }
+    };
+    axios(postRequest)
+      .then(response => {
+        console.log(response.status)
 
-          });
-    }
+      });
+  }
 
-    return (
-      <div className='Form-content'>
-        <Card FormContent={ 
-          <>
-   <PersonAddAltSharpIcon sx={{color:"#007FFF",marginBottom:"8px",fontSize:"60px"}}/>
-      <div className='content-center'>
-         <label htmlFor="UserId">User ID</label>
-         <StyledInputElement  slots={{ input: StyledInputElement }} 
-        name="UserId" 
-        onChange={UserHandler} 
-        placeholder="User Id" 
-        value={UserId}
-        id="UserId"
-        /> 
-        </div>
-            <br/>
-           <div className='content-center'>
-            <label htmlFor="Id">ID </label>
-           <StyledInputElement slots={{ input: StyledInputElement }}  
-            name="Id" 
-            onChange={idHandler} 
-            placeholder="Id" 
-            value={iid}
+  return (
+    <div className='Form-content'>
+    <PersonIcon sx={{ color: "#007FFF", marginBottom: "8px", fontSize: "80px" }} />      
+    <ModeEditTwoToneIcon sx={{ color: "#007FFF", fontSize: "30px" }} />      
+          <div className='content-center'>
+          <label htmlFor="Id">Author</label>
+          <StyledInputElement slots={{ input: StyledInputElement }}
+            name="Id"
+            onChange={idHandler}
+            placeholder="Id"
+            value={Name}
             id="Id"
             />
-            </div>
-            <br/>
-           <div className='content-center'>
-            <label htmlFor="title">Title</label> 
-           <StyledInputElement slots={{ input: StyledInputElement }} 
-            type="text" 
-            name="Title" 
-            onChange={titleHandler} 
-            placeholder="Title" 
-            value={Title }
+           </div> 
+         
+          <div className='content-center'>
+          <label htmlFor="Title">Title</label>
+          <StyledInputElement slots={{ input: StyledInputElement }}
+            type="text"
+            name="Title"
+            onChange={titleHandler}
+            placeholder="Title"
+            value={Title}
             id="title"
             />
-            </div>
-            
-           <br/>
-            <div className='content-center'>
-            <label htmlFor="des">Description</label>
-           <StyledMultiLineElement slots={{ input: StyledInputElement }}
-            type="Description" 
-            name="Description" 
-            onChange={DescriptionHandler} 
-            placeholder="Description" 
+          </div> 
+
+          
+          {/* <div className='content' >  */}
+          <label style={{marginRight:"5em",paddingBottom:"3px"}} htmlFor="Description">Description</label>
+          <StyledMultiLineElement 
+            type="Description"
+            name="Description"
+            onChange={DescriptionHandler}
+            placeholder="Description"
             value={Description}
             id="des"
             />
-            </div>
-          <ButtonComponent  onClick={submitButton} slots={{button:ButtonComponent}}  >Submit User</ButtonComponent>
-            </>
-          }
-          />
-          </div>
+           {/* </div>  */}
+          <ButtonComponent onClick={submitButton} slots={{ button: ButtonComponent }}  >Submit</ButtonComponent>
+       
+     
+    </div>
 
-         
-    )
+
+  )
 }
 
 export default EditUser;

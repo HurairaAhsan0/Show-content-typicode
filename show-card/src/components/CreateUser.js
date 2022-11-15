@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios"
 import { styled } from '@mui/system';
-import Card from './Card';
 import "../Styles/App.css";
 import PersonAddAltSharpIcon from '@mui/icons-material/PersonAddAltSharp';
 
@@ -56,10 +55,10 @@ const StyledMultiLineElement = styled('textarea')(
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 2;
+  line-height:2;
   padding: 12px;
   border-radius: 12px;
-  fullWidth:true;
+  width:14em;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
@@ -115,10 +114,6 @@ function CreateUser() {
     }
 
     const submitButton = () =>{
-        console.log(Description)
-        console.log(Title)
-        console.log(id)
-        console.log(UserId)
         const postRequest = {
           url: `https://jsonplaceholder.typicode.com/posts`,
           method: 'POST',
@@ -141,10 +136,9 @@ function CreateUser() {
     }
 
     return (
-      <div className='Form-content'>
-      <Card FormContent={ 
+      <div className='Form-content'> 
         <>
-        <PersonAddAltSharpIcon  sx={{color:"#007FFF",marginBottom:"10px",fontSize:"60px",marginTop:0}}/>
+        <PersonAddAltSharpIcon  sx={{color:"#007FFF",marginBottom:"50px",fontSize:"60px",marginTop:0}}/>
     <div className='content-center'>
        <label htmlFor="UserId">User ID</label>
        <StyledInputElement  slots={{ input: StyledInputElement }} 
@@ -180,9 +174,9 @@ function CreateUser() {
           </div>
           
          <br/>
-          <div className='content-center'>
-          <label htmlFor="des">Description</label>
-         <StyledMultiLineElement slots={{ input: StyledInputElement }} 
+          {/* <div className='content'> */}
+          <label style={{marginRight:"6.4em"}} htmlFor="des">Description</label>
+         <StyledMultiLineElement slots={{ input: StyledInputElement }}
           type="Description" 
           name="Description" 
           onChange={DescriptionHandler} 
@@ -190,13 +184,11 @@ function CreateUser() {
           value={Description}
           id="des"
           />
-          </div>
-          <div>
+          {/* </div> */}
+          <div className='content-center'>
         <ButtonComponent  onClick={submitButton} slots={{button:ButtonComponent}}  >Submit User</ButtonComponent>
         </div>
           </>
-        }
-        />
         </div>
 
        

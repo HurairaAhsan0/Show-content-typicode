@@ -4,6 +4,7 @@ import CreateUser from "./components/CreateUser";
 import EditUser from "./components/EditUser";
 import Posts from "./components/Posts";
 import Header from "./components/Header"
+import Comments from "./components/Comments";
 import "./Styles/App.css";
 function App() {
   
@@ -14,9 +15,10 @@ function App() {
  <div >
 <Routes>
   <Route path="/" exact element={<Posts />} ></Route>
-  <Route path="/User/List/:userid" element={<AllPosts/> } ></Route>
+  <Route path="/User/List/:userid/:Name" element={<AllPosts/> } ></Route>
   <Route path="/User/Create" element={<CreateUser/>} ></Route>
-  <Route path="/User/Edit/:iid" element={<EditUser/>} ></Route>
+  <Route path="/User/Edit/:Name/:title/:description" element={<EditUser/>} ></Route>
+  <Route path="/User/Comments/:userId/:id" element={<Comments/>} ></Route>
 </Routes>
  </div>
 </BrowserRouter>

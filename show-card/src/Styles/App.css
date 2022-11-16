@@ -2,34 +2,20 @@ body{
  background-color: 	#E8E8E8;
 }
 
-<<<<<<< HEAD
 p {
   font-family: sans-serif;
-=======
-.App {
-  
->>>>>>> a6ebef3808654aa2ba529fc04cec49ef1d243fa5
 }
 .Form-content {
 display: flex;
 flex-direction: column;
 align-items: center ;
 margin-left: 20%;
-margin-right: 20%;
+margin-right: 25%;
 margin-Top: 8%;
 padding: 4em;
 border-radius: 12px;
 background-color: white;
 }
-/* #content-center{
-  display: flex;
-  align-items: center;
-<<<<<<< HEAD
-  flex-wrap: wrap;
-  width: 150px;
-  font-size: large;
-  color: #342929;
-} */
 
 #content-center{
  margin-right:4.3em;
@@ -38,16 +24,6 @@ background-color: white;
   width: 150px;
   font-size: large;
   color: #342929;
-=======
-  background-color: var(--blueDark);
-  border-radius: 6px;
-  box-shadow: var(--white-shadow);
-  position:relative;
-  padding: 0;
-  width: 100%;
-  margin-top: 5px;
-  border-radius: 7px
->>>>>>> a6ebef3808654aa2ba529fc04cec49ef1d243fa5
 }
 
 
@@ -56,41 +32,7 @@ background-color: white;
  margin-left: 18%;
  margin-right: 18%;
 }
-<<<<<<< HEAD
 .underline{
-=======
-.Edit-content {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  border-radius: 6px;
-  background-color: var(--blueDark);
-  margin-top: 5px;
-}
-.content-center {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-top: 1px;
-  margin-bottom: 5px;
-}
-.btn {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  background-color: rgb(223, 207, 207);
-  border-radius: 6px;
-  width: fit-content;
-  position: relative;
-  left: 100px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-a,
-a:hover,
-a:focus,
-a:active {
->>>>>>> a6ebef3808654aa2ba529fc04cec49ef1d243fa5
   text-decoration: none;
 }
 label{

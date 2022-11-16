@@ -32,7 +32,7 @@ const StyledInputElement = styled('input')(
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  padding: 12px;
+  padding: 1.2em;
   border-radius: 12px;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
@@ -56,7 +56,7 @@ const StyledMultiLineElement = styled('textarea')(
   font-size: 0.875rem;
   font-weight: 400;
   line-height:2;
-  padding: 12px;
+  padding: 1.2em;
   border-radius: 12px;
   width:14em;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
@@ -138,8 +138,8 @@ function CreateUser() {
     return (
       <div className='Form-content'> 
         <>
-        <PersonAddAltSharpIcon  sx={{color:"#007FFF",marginBottom:"50px",fontSize:"60px",marginTop:0}}/>
-    <div className='content-center'>
+        <PersonAddAltSharpIcon position="static" sx={{color:"#007FFF",marginBottom:"20px",fontSize:"60px",alignItems:"center"}}/>
+    <div id='content-center'>
        <label htmlFor="UserId">User ID</label>
        <StyledInputElement  slots={{ input: StyledInputElement }} 
       name="UserId" 
@@ -150,7 +150,7 @@ function CreateUser() {
       /> 
       </div>
           <br/>
-         <div className='content-center'>
+         <div id='content-center'>
           <label htmlFor="Id">ID </label>
          <StyledInputElement slots={{ input: StyledInputElement }}  
           name="Id" 
@@ -161,7 +161,7 @@ function CreateUser() {
           />
           </div>
           <br/>
-         <div className='content-center'>
+         <div id='content-center'>
           <label htmlFor="title">Title</label> 
          <StyledInputElement slots={{ input: StyledInputElement }} 
           type="text" 
@@ -174,8 +174,9 @@ function CreateUser() {
           </div>
           
          <br/>
-          {/* <div className='content'> */}
-          <label style={{marginRight:"6.4em"}} htmlFor="des">Description</label>
+          <div id='content-center'>
+          <label htmlFor="des">Description</label>
+          </div>
          <StyledMultiLineElement slots={{ input: StyledInputElement }}
           type="Description" 
           name="Description" 
@@ -184,7 +185,6 @@ function CreateUser() {
           value={Description}
           id="des"
           />
-          {/* </div> */}
           <div className='content-center'>
         <ButtonComponent  onClick={submitButton} slots={{button:ButtonComponent}}  >Submit User</ButtonComponent>
         </div>

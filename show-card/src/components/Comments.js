@@ -6,9 +6,9 @@ import { useParams } from 'react-router-dom';
 
 const Comments = () => {
   const [Comment,setComment]=useState([])
-  const {userId,id}=useParams();
+  const {Id}=useParams();
 
-  console.log(userId)
+  console.log(Id)
 
   useEffect(() => {
     const comments = "https://jsonplaceholder.typicode.com/comments";
@@ -20,11 +20,10 @@ const Comments = () => {
     })
   }, [])
   const comments=Comment.map((comm)=>{
- console.log(id)
   return (
     <div  key={comm.id} id="comments">
-      { parseInt(userId)===comm.postId ?
-    (<Paper style={{ padding: "40px 20px" }}>
+      { parseInt(Id)===comm.postId ?
+    (<Paper style={{ padding: "40px 20px",margin:"1.5em",borderRadius:"10px"}}>
       <Grid container wrap="nowrap" spacing={2}>
         <Grid item>
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -36,7 +35,7 @@ const Comments = () => {
           </p>
         </Grid>
       </Grid>
-      <Divider variant="fullWidth"  />
+      <Divider variant="fullWidth"/>
       </Paper>):" "
   }
     </div>

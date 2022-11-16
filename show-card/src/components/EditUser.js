@@ -34,8 +34,7 @@ const StyledInputElement = styled('input')(
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  width: 400px;
-  padding: 12px;
+  padding: 1.2em;
   border-radius: 12px;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
@@ -59,10 +58,9 @@ const StyledMultiLineElement = styled('textarea')(
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 3;
-  padding: 12px;
+  padding: 1.2em;
   border-radius: 12px;
   width:14em;
- margin-left:55px;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
@@ -154,7 +152,7 @@ function EditUser() {
     <div className='Form-content'>
     <PersonIcon sx={{ color: "#007FFF", marginBottom: "8px", fontSize: "80px" }} />      
     <ModeEditTwoToneIcon sx={{ color: "#007FFF", fontSize: "30px" }} />      
-          <div className='content-center'>
+          <div id='content-center'>
           <label htmlFor="Id">Author</label>
           <StyledInputElement slots={{ input: StyledInputElement }}
             name="Id"
@@ -165,7 +163,7 @@ function EditUser() {
             />
            </div> 
          
-          <div className='content-center'>
+          <div id='content-center'>
           <label htmlFor="Title">Title</label>
           <StyledInputElement slots={{ input: StyledInputElement }}
             type="text"
@@ -178,9 +176,10 @@ function EditUser() {
           </div> 
 
           
-          {/* <div className='content' >  */}
-          <label style={{marginRight:"5em",paddingBottom:"3px"}} htmlFor="Description">Description</label>
-          <StyledMultiLineElement 
+          <div id='content-center' > 
+          <label htmlFor="Description">Description</label>
+          </div> 
+          <StyledMultiLineElement className='content'
             type="Description"
             name="Description"
             onChange={DescriptionHandler}
@@ -188,7 +187,6 @@ function EditUser() {
             value={Description}
             id="des"
             />
-           {/* </div>  */}
           <ButtonComponent onClick={submitButton} slots={{ button: ButtonComponent }}  >Submit</ButtonComponent>
        
      

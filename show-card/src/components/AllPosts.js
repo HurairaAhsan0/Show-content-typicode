@@ -1,11 +1,13 @@
 import React from 'react';
-import { useEffect,useState,useRef } from 'react';
+import { useEffect,useState } from 'react';
 import axios from 'axios';
 import { useParams,Link } from 'react-router-dom';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
 import CardActions from '@mui/material/CardActions';
+import CommentIcon from '@mui/icons-material/Comment';
+import Badge from '@material-ui/core/Badge';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 
@@ -13,8 +15,7 @@ import CardActions from '@mui/material/CardActions';
 const AllPosts=()=> {
  const {userid,Name}=useParams();
  const [Posts,setPosts]=useState([])
- const [Comments,setComments]=useState([])
- const commentId = useRef([])
+
  
  const block=Posts.map((val)=>{
   return(
@@ -32,27 +33,23 @@ const AllPosts=()=> {
                     Description: {val.body}
                   </Typography>
                 </CardContent>
-                <CardActions sx={{borderRadius:"6px",bgcolor:"white"}}>
-                    <Link className='underline' to={`/User/Comments/${val.userId}/${commentId}`}>
-                  <Button>Comments</Button>
+                <CardActions sx={{borderRadius:"6px",bgcolor:"white",justifyContent:"flex-end",borderColor:"#007FFF"}}>
+                    <Link className='underline' to={`/User/Comments/${val.id}`}>
+                    <Badge badgeContent={5}>
+                   <CommentIcon sx={{color:"#007FFF",fontSize:"30px",paddingRight:"4px"}} />
+                   </Badge>
                   </Link>
                   <Link to={`/User/Edit/${Name}/${val.title.toUpperCase()}/${val.body}`} className="underline">
-                  <Button>Edit</Button>
+                  <EditIcon sx={{color:"#007FFF",fontSize:"30px",paddingRight:"4px"}} />
                   </Link>
-                </CardActions>
+                </CardActions >
             </div>
  : " "   
   } </div>
   )
 })
 
- Comments.map((val)=>{
-  commentId.current=val.email;
-  return(
-  <div>
-  </div>
-  )
- })
+
 
   useEffect(() => {
     const url = "https://jsonplaceholder.typicode.com/posts";
@@ -60,12 +57,6 @@ const AllPosts=()=> {
       .then((response) => {
         const res = response.data;
         setPosts(res)
-      })
-    const comment = "https://jsonplaceholder.typicode.com/comments";
-    axios.get(comment)
-      .then((response) => {
-        const result = response.data;
-        setComments(result)
       })
     }, [])
   return (

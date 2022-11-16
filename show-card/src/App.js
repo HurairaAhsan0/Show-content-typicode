@@ -18,7 +18,7 @@ function App() {
   <Route path="/User/List/:userid/:Name" element={<AllPosts/> } ></Route>
   <Route path="/User/Create" element={<CreateUser/>} ></Route>
   <Route path="/User/Edit/:Name/:title/:description" element={<EditUser/>} ></Route>
-  <Route path="/User/Comments/:userId/:id" element={<Comments/>} ></Route>
+  <Route path="/User/Comments/:Id" element={<Comments/>} ></Route>
 </Routes>
  </div>
 </BrowserRouter>
